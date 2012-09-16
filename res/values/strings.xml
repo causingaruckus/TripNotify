@@ -1,0 +1,23 @@
+<resources>
+
+    <string name="app_name">TripNotify</string>
+    <string name="initial_title">Welcome to TripNotify!</string>
+    <string name="menu_settings">Settings</string>
+    <string name="title_activity_flow_one">TripNotify</string>
+    <string name="sensor_off">Alerts are</string>
+    <string name="sensor_on">Alerts are</string>
+    <string-array name="user_options">
+      <item>I\'m OK</item>
+      <item>Call Emergency</item>
+      <item>Call 911</item>
+    </string-array>
+    <string name="options_title">What to do?</string>
+    <string name="incident_status"/>
+    <string name="case1disp">You\'re doing okay</string>
+    <string name="case2disp">Emergency contacted at </string>
+    <string name="case3disp">911 Called at </string>
+    <string name="dial_number">9787788305</string>
+    <string name="emergency_number">6178408658</string>
+    <string name="time_contacted"/>
+
+</resources>
