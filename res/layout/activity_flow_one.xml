@@ -57,4 +57,16 @@
         android:text="@string/time_contacted"
         android:textAppearance="?android:attr/textAppearanceMedium" />
 
+<<<<<<< HEAD
+=======
+    <Button
+        android:id="@+id/button1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/textView3"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="15dp"
+        android:text="@string/pick_contact" />
+
+>>>>>>> Commit 2 - Hackanooga 2012
 </RelativeLayout>
