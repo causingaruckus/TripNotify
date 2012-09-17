@@ -170,7 +170,7 @@ public class TripNotify extends Activity {
 									Intent dial = new Intent();
 									dial.setAction("android.intent.action.DIAL");
 									dial.setData(Uri.parse("tel:"
-											+ "6178408658"));
+											+ "6179995522"));
 									startActivity(dial);
 									// case 2:
 								} else if (2 == item) {
@@ -187,7 +187,7 @@ public class TripNotify extends Activity {
 									Intent dial = new Intent();
 									dial.setAction("android.intent.action.DIAL");
 									dial.setData(Uri.parse("tel:"
-											+ "9787788305"));
+											+ "6178885522"));
 									startActivity(dial);
 								}
 							} // end method onClick
