@@ -19,9 +19,6 @@
     <string name="dial_number">9787788305</string>
     <string name="emergency_number">6178408658</string>
     <string name="time_contacted"/>
-<<<<<<< HEAD
-=======
     <string name="pick_contact">My Emergency Contact</string>
->>>>>>> Commit 2 - Hackanooga 2012
-
+    <string name="toggle">toggleButton</string>
 </resources>

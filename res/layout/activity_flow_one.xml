@@ -35,7 +35,7 @@
         android:layout_height="wrap_content"
         android:layout_alignRight="@+id/analogClock1"
         android:layout_centerVertical="true"
-        android:text="ToggleButton" />
+        android:text="@string/toggle" />
 
     <TextView
         android:id="@+id/textView3"
@@ -57,8 +57,6 @@
         android:text="@string/time_contacted"
         android:textAppearance="?android:attr/textAppearanceMedium" />
 
-<<<<<<< HEAD
-=======
     <Button
         android:id="@+id/button1"
         android:layout_width="wrap_content"
@@ -68,5 +66,4 @@
         android:layout_marginTop="15dp"
         android:text="@string/pick_contact" />
 
->>>>>>> Commit 2 - Hackanooga 2012
 </RelativeLayout>

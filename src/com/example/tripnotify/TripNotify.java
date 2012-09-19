@@ -5,25 +5,15 @@ import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
-<<<<<<< HEAD
-=======
 import android.database.Cursor;
->>>>>>> Commit 2 - Hackanooga 2012
 import android.hardware.Sensor;
 import android.hardware.SensorEvent;
 import android.hardware.SensorEventListener;
 import android.hardware.SensorManager;
 import android.net.Uri;
 import android.os.Bundle;
-<<<<<<< HEAD
-import android.text.format.Time;
-import android.view.Menu;
-import android.view.View;
-import android.view.View.OnClickListener;
-import android.widget.TextView;
-=======
 import android.provider.ContactsContract;
-import android.provider.ContactsContract.CommonDataKinds.Email;
+import android.provider.ContactsContract.CommonDataKinds.Phone;
 import android.provider.ContactsContract.Contacts;
 import android.text.format.Time;
 import android.util.Log;
@@ -31,10 +21,8 @@ import android.view.Menu;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
-import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
->>>>>>> Commit 2 - Hackanooga 2012
 import android.widget.ToggleButton;
 
 public class TripNotify extends Activity {
@@ -46,23 +34,20 @@ public class TripNotify extends Activity {
 	private TextView incidentStatus;
 	private ToggleButton toggleButton;
 	private TextView viewTime;
-<<<<<<< HEAD
-=======
 	private Button contactButton;
->>>>>>> Commit 2 - Hackanooga 2012
 
 	// value used to determine whether user fell
 //	private static final int ACCELERATION_THRESHOLD = 15000;
 	
 	private static final int VERTICAL_FALL_THRESHOLD = 15;
-<<<<<<< HEAD
-=======
 	private static int PICK_CONTACT;
 	private static final int CONTACT_PICKER_RESULT = 1001; 
->>>>>>> Commit 2 - Hackanooga 2012
 
 	// ON/OFF status switch
 	private static boolean toggle_status = false;
+	
+	//Phone number selected as emergency contact
+	private static String phoneNumber;
 
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
@@ -72,11 +57,8 @@ public class TripNotify extends Activity {
 		toggleButton.setOnClickListener(toggleSwitchButtonListener);
 		incidentStatus = (TextView) findViewById(R.id.textView3);
 		viewTime = (TextView) findViewById(R.id.textView4);
-<<<<<<< HEAD
-=======
 		contactButton = (Button) findViewById(R.id.button1);
->>>>>>> Commit 2 - Hackanooga 2012
-
+		contactButton.setOnClickListener(contactButtonListener);
 	}
 
 	@Override
@@ -84,8 +66,6 @@ public class TripNotify extends Activity {
 		getMenuInflater().inflate(R.menu.activity_flow_one, menu);
 		return true;
 	}
-<<<<<<< HEAD
-=======
 	 
 	  
 	public void doLaunchContactPicker(View view) {  
@@ -109,7 +89,7 @@ public class TripNotify extends Activity {
 	        switch (requestCode) {
 	        case CONTACT_PICKER_RESULT:
 	            Cursor cursor = null;
-	            String email = "";
+	            phoneNumber = "";
 	            try {
 	                Uri result = data.getData();
 	                Log.v("TAG2", "Got a contact result: "
@@ -119,55 +99,46 @@ public class TripNotify extends Activity {
 	                String id = result.getLastPathSegment();
 
 	                // query for everything email
-	                cursor = getContentResolver().query(Email.CONTENT_URI,
-	                        null, Email.CONTACT_ID + "=?", new String[] { id },
+	                cursor = getContentResolver().query(Phone.CONTENT_URI,
+	                        null, Phone.CONTACT_ID + "=?", new String[] { id },
 	                        null);
-
-	                int emailIdx = cursor.getColumnIndex(Email.DATA);
+	                
+	                int phoneIdx = cursor.getColumnIndex(Phone.DATA);
 
 	                // let's just get the first email
 	                if (cursor.moveToFirst()) {
-	                    email = cursor.getString(emailIdx);
-	                    Log.v("TAG2", "Got email: " + email);
+	                    phoneNumber = cursor.getString(phoneIdx);
+	                    Log.v("TAG2", "Got phone number: " + phoneNumber);
 	                } else {
 	                    Log.w("TAG2", "No results");
 	                }
 	            } catch (Exception e) {
-	                Log.e("TAG2", "Failed to get email data", e);
+	                Log.e("TAG2", "Failed to get phone number data", e);
 	            } finally {
 	                if (cursor != null) {
 	                    cursor.close();
 	                }
 //	                EditText emailEntry = (EditText) findViewById(R.id.invite_email);
 //	                emailEntry.setText(email);
-	                if (email.length() == 0) {
-	                    Toast.makeText(this, "No email found for contact.",
+	                if (phoneNumber.length() == 0) {
+	                    Toast.makeText(this, "No phone number found for contact.",
 	                            Toast.LENGTH_LONG).show();
 	                }
-
 	            }
-
 	            break;
 	        }
-
 	    } else {
 	        Log.w("TAG2", "Warning: activity result not ok");
 	    }
 	}
-
-
- 
->>>>>>> Commit 2 - Hackanooga 2012
+	
 
 	// called when the ON/OFF Button is touched
 	private OnClickListener toggleSwitchButtonListener = new OnClickListener() {
 		@Override
 		public void onClick(View v) {
 			if (toggle_status == false) {
-<<<<<<< HEAD
-=======
 				contactButton.setVisibility(View.GONE);
->>>>>>> Commit 2 - Hackanooga 2012
 				toggle_status = true;
 				// initialize acceleration values
 				acceleration = 0.00f;
@@ -175,10 +146,7 @@ public class TripNotify extends Activity {
 				lastAcceleration = SensorManager.GRAVITY_EARTH;
 				enableAccelerometerListening(); // initialize accelerometer
 			} else {
-<<<<<<< HEAD
-=======
 				contactButton.setVisibility(View.VISIBLE);
->>>>>>> Commit 2 - Hackanooga 2012
 				disableAccelerometerListening(); // initialize accelerometer
 				toggle_status = false;
 			}
@@ -284,11 +252,7 @@ public class TripNotify extends Activity {
 									Intent dial = new Intent();
 									dial.setAction("android.intent.action.DIAL");
 									dial.setData(Uri.parse("tel:"
-<<<<<<< HEAD
-											+ "6179995522"));
-=======
-											+ "6178408658"));
->>>>>>> Commit 2 - Hackanooga 2012
+											+ phoneNumber));
 									startActivity(dial);
 									// case 2:
 								} else if (2 == item) {
@@ -305,11 +269,7 @@ public class TripNotify extends Activity {
 									Intent dial = new Intent();
 									dial.setAction("android.intent.action.DIAL");
 									dial.setData(Uri.parse("tel:"
-<<<<<<< HEAD
-											+ "6178885522"));
-=======
 											+ "9787788305"));
->>>>>>> Commit 2 - Hackanooga 2012
 									startActivity(dial);
 								}
 							} // end method onClick

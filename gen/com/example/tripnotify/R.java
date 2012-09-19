@@ -19,12 +19,8 @@ public final class R {
     }
     public static final class id {
         public static final int analogClock1=0x7f080001;
-<<<<<<< HEAD
-        public static final int menu_settings=0x7f080006;
-=======
         public static final int button1=0x7f080006;
         public static final int menu_settings=0x7f080007;
->>>>>>> Commit 2 - Hackanooga 2012
         public static final int textView1=0x7f080000;
         public static final int textView2=0x7f080002;
         public static final int textView3=0x7f080004;
@@ -48,14 +44,12 @@ public final class R {
         public static final int initial_title=0x7f040001;
         public static final int menu_settings=0x7f040002;
         public static final int options_title=0x7f040006;
-<<<<<<< HEAD
-=======
         public static final int pick_contact=0x7f04000e;
->>>>>>> Commit 2 - Hackanooga 2012
         public static final int sensor_off=0x7f040004;
         public static final int sensor_on=0x7f040005;
         public static final int time_contacted=0x7f04000d;
         public static final int title_activity_flow_one=0x7f040003;
+        public static final int toggle=0x7f04000f;
     }
     public static final class style {
         public static final int AppTheme=0x7f060000;
