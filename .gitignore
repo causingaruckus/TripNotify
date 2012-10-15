@@ -5,11 +5,26 @@
 # *.[oa]
 # *~
 
-# random temporary files
-*~
-\#*\#
-.\#*
+# built application files
+*.apk
+*.ap_
 
+# files for the dex VM
+*.dex
+
+# Java class files
+*.class
+
+# generated files
+bin/
+gen/
+
+# Local configuration file (sdk path, etc)
+local.properties
+
+# Eclipse project files
+.classpath
+.project
 # eclipse project files.
 .classpath
 .project
@@ -25,7 +40,3 @@
 *.BASE.*
 *.REMOTE.*
 
-# generated maven/build directories.
-bin
-build
-target
