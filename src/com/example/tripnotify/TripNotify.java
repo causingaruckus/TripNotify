@@ -72,8 +72,16 @@ public class TripNotify extends Activity {
 	    Intent contactPickerIntent = new Intent(Intent.ACTION_PICK,  
 	            Contacts.CONTENT_URI);  
 	    startActivityForResult(contactPickerIntent, CONTACT_PICKER_RESULT);  
+	    
+	    new OnClickListener() {
+			@Override
+			public void onClick(View v) {
+				// TODO Auto-generated method stub
+				
+			}
+		};
 	}
-	
+
 	// called when the contact Button is touched
 	private OnClickListener contactButtonListener = new OnClickListener() {
 		@Override
