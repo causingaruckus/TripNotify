@@ -277,8 +277,8 @@ public class TripNotify extends Activity {
 
 									Intent dial = new Intent();
 									dial.setAction("android.intent.action.DIAL");
-									dial.setData(Uri.parse("tel:"
-											+ "9787788305"));
+									//set tel number like
+									//dial.setData(Uri.parse("tel:" + "telnumberhere"));
 									startActivity(dial);
 								}
 							} // end method onClick
